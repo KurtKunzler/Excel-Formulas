@@ -1,0 +1,7 @@
+This counts the previous cell and repeats it 7 times before moving to another cell in a list. This is useful for creating journal entries for accounting.
+
+=IF(COUNTIF($CQ$17:$CQ$555,CQ17)>=7,OFFSET(INDEX($CE$17:$CE$90,MATCH(CQ17,$CE$17:$CE$90,0)),1,0),CQ17)
+
+Combine with this to transpose multiple rows into one column
+
+=INDEX($CH$17:$CN$90,1+INT((ROWS($A$680:A680)-1)/COLUMNS($CH$17:$CN$90)),1+MOD(ROWS($A$680:A680)-1,COLUMNS($CH$17:$CN$90)))
